@@ -40,7 +40,19 @@ const experiencias =  [
         current: false,
         technologies: ["React", "Typescript", "Next.JS", "MongoDB", "Git", "Vite.JS", "Node.JS", "HTML5", "Express.JS", "JavaScript", "Python", "CSS3", "TailwindCSS", "Angular"],
     },
+
+    {
+    "period": "2022 - 2023",
+    "role": "Data Entry y Constructor de Mapas Virtuales",
+    "company": "Atom Protect",
+    "description": "Responsable de la gestión y organización de datos, así como de la construcción de mapas virtuales precisos y visualmente claros. Trabajé con hojas de cálculo de Excel, bases de datos MySQL y la API de Google Maps, optimizando flujos de trabajo y garantizando la integridad de la información geoespacial.",
+    "current": false,
+    "technologies": ["Excel", "MySQL", "Google Maps API", "Google Sheets", "Data Cleaning", "SQL Queries", "Map Visualization", "Python (básico)"]
+}, 
 ]
+
+
+
 
 export const Experiencia = () => {
     return (
