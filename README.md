@@ -104,4 +104,34 @@ cd portfolio-moderno
 npm install
 </pre>
 
-<
+<h3>3. Ejecutar el proyecto</h3>
+<pre>npm run dev</pre>
+
+<p>Luego abrí el navegador en la URL indicada (generalmente <code>http://localhost:5173</code>).</p>
+
+<hr>
+
+<h2>🌐 Demo</h2>
+
+<p>
+👉 <a href="https://portfolioslf.com"><strong>Ver Portfolio</strong></a>
+</p>
+
+<hr>
+
+<h2>🎯 Objetivo del Proyecto</h2>
+
+<p>
+Construir un portfolio que no solo muestre proyectos,
+sino que también refleje mi enfoque como desarrollador:
+<strong>crear experiencias, no solo interfaces</strong>.
+</p>
+
+<hr>
+
+<h2>👤 Autor</h2>
+
+<p>
+<strong>Santiago López Fabbri</strong><br>
+💻 Desarrollador Web Full Stack
+</p>
