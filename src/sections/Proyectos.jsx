@@ -136,29 +136,35 @@ export const Proyectos = () => {
                 </div>
 
 {/* Ver Todos CTA */}
-{!CtaClicked && (
-  <div
-    className={`
-      text-center mt-12 animate-fade-in animation-delay-500
-      ${CtaClicked ? "opacity-0 pointer-events-none" : "opacity-100"}
-      transition-opacity duration-500
-    `}
-  >
+<div
+  className="text-center mt-12"
+>
+  {!CtaClicked && (
     <div
       onClick={() => {
-        setCtaClicked(true);
+        setCtaClicked(true); // inicia fade-out
         const el = document.getElementById("Proyectos");
-        el?.scrollIntoView({ behavior: "smooth" });
+        el?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        // Opcional: acción extra después del fade
+        setTimeout(() => {
+          console.log("Botón oculto completamente");
+        }, 500); // coincide con duration-500
       }}
-      className="inline-flex items-center cursor-pointer"
+      className="inline-flex w-full justify-center items-center cursor-pointer touch-manipulation"
     >
-      <AnimatedBorderButton>
+      <AnimatedBorderButton
+        className={`transition-opacity duration-500 ${
+          CtaClicked ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
+      >
         Ver Todos Los Proyectos
         <ArrowUpRight className="w-5 h-5 ml-2" />
       </AnimatedBorderButton>
     </div>
-  </div>
-)}
+  )}
+</div>
+
 
 
                 </div>
