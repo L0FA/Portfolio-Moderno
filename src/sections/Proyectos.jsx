@@ -1,5 +1,6 @@
 import { ArrowUpRight, Github } from "lucide-react"
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton"
+import { useState } from "react";
 
 const proyectos = [
 
@@ -29,6 +30,10 @@ title: "Portfolio Moderno",
 ]
 
 export const Proyectos = () => {
+
+    const [CtaClicked, setCtaClicked] = useState(false);
+
+
     return (
         <section id="Proyectos" className="py-32 relative-overflow-hidden">
 
@@ -130,13 +135,32 @@ export const Proyectos = () => {
                     ))}
                 </div>
 
-                {/* Ver Todos CTA */}
-                <div className=" text-center mt-12 animate-fade-in animation-delay-500">
-                    <AnimatedBorderButton>
-                        Ver Todos Los Proyectos
-                        <ArrowUpRight className="w-5 h-5" />
-                        </AnimatedBorderButton>
-                </div>
+{/* Ver Todos CTA */}
+{!CtaClicked && (
+  <div
+    className={`
+      text-center mt-12 animate-fade-in animation-delay-500
+      ${CtaClicked ? "opacity-0 pointer-events-none" : "opacity-100"}
+      transition-opacity duration-500
+    `}
+  >
+    <div
+      onClick={() => {
+        setCtaClicked(true);
+        const el = document.getElementById("Proyectos");
+        el?.scrollIntoView({ behavior: "smooth" });
+      }}
+      className="inline-flex items-center cursor-pointer"
+    >
+      <AnimatedBorderButton>
+        Ver Todos Los Proyectos
+        <ArrowUpRight className="w-5 h-5 ml-2" />
+      </AnimatedBorderButton>
+    </div>
+  </div>
+)}
+
+
                 </div>
         </section>
     );
