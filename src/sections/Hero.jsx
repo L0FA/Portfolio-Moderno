@@ -126,7 +126,7 @@ const [particles] = useState(() =>
                 <ArrowRight className="w-5 h-5" />
                 </Button>
                 </a>
-                <a href="/CV_SLF.pdf" download>
+                <a href="/CVSLF.pdf" download>
                <AnimatedBorderButton>
                 <Download className="w-5 h-5"/>
                     Descargar CV
