@@ -6,25 +6,60 @@ const proyectos = [
 
 
 {
-title: "Portfolio Moderno",
-
-    description: `Portfolio profesional desarrollado como plataforma de
-    presentación personal y técnica. El objetivo del proyecto fue construir
-    una aplicación web moderna que refleje tanto mis habilidades en desarrollo 
-    frontend como mi enfoque en arquitectura y organización de código.
-    Fue desarrollado utilizando React y TailwindCSS, priorizando diseño limpio, 
-    estructura modular y rendimiento optimizado. La aplicación está organizada
-    por secciones dinámicas que permiten una navegación clara e intuitiva, 
-    manteniendo coherencia visual y escalabilidad futura.
-    Más allá de ser una presentación, este proyecto funciona como demostración 
-    práctica de mis conocimientos en desarrollo full stack, buenas prácticas,
-    componentización y enfoque orientado a experiencia de usuario.`,
-
-    image:"/projects/Portfolio.png",
-    tags: ["React", "Vite", "TailwindCSS", "Node.JS", "JavaScript", "Diseño Responsive"],
+    title: "JARVIS AI - Asistente HUD",
+    description: `Asistente virtual de escritorio avanzado inspirado en Iron Man. 
+    Desarrollado con Electron y OpenAI, cuenta con un sistema de voz 
+    'Always Listening' que responde a su nombre, una interfaz HUD transparente 
+    completamente táctica y un módulo de aprendizaje evolutivo que permite a la 
+    IA recordar preferencias y estilos del usuario de forma persistente.`,
+    image: "/projects/Jarvis.png",
+    tags: ["Electron", "OpenAI", "React", "Voice HUD", "Framermotion", "Node.js"],
+    link: "#",
+    github: "https://github.com/L0FA/jarvis-ai"
+},
+{
+    title: "L0FAChat - Real-time Chat",
+    description: `Plataforma de comunicación en tiempo real con arquitectura cliente-servidor 
+    robusta. Implementa sincronización de salas mediante Socket.io, persistencia de 
+    datos distribuida en Turso (SQLite) y un sistema de música sincronizado que 
+    permite a los usuarios escuchar la misma playlist en tiempo real sin latencia.`,
+    image: "/projects/Whatsappnt.png",
+    tags: ["React 19", "Socket.io", "Turso DB", "TailwindCSS 4", "Express", "Vite"],
+    link: "https://chat.portfolioslf.com",
+    github: "https://github.com/L0FA/chat-en-vivo"
+},
+{
+    title: "Aprende Programando - LMS",
+    description: `Plataforma educativa (Learning Management System) diseñada para la 
+    enseñanza de programación. Incluye un sistema de gestión de cursos, lecciones 
+    interactivas con soporte para Markdown, dashboards de progreso del estudiante 
+    y una arquitectura escalable basada en Next.js y Prisma.`,
+    image: "/projects/AprendeProgramando.png",
+    tags: ["Next.js 14", "TypeScript", "TailwindCSS", "Prisma", "PostgreSQL", "Markdown"],
+    link: "https://aprendeprogramando.portfolioslf.com",
+    github: "https://github.com/L0FA/aprende-programando"
+},
+{
+    title: "Portfolio Moderno",
+    description: `Mi portfolio profesional diseñado para destacar habilidades técnicas 
+    y proyectos de impacto. Con un enfoque en diseño HUD y animaciones fluidas, 
+    sirve como una demostración de buenas prácticas en desarrollo frontend, 
+    componentización y arquitectura modular utilizando React y TailwindCSS.`,
+    image: "/projects/Portfolio.png",
+    tags: ["React", "Vite", "TailwindCSS", "Node.js", "Framermotion", "Lucide React"],
     link: "https://portfolioslf.com",
     github: "https://github.com/L0FA/portfolio-moderno"
-
+},
+{
+    title: "Popcorn - Movie Platform",
+    description: `Aplicación de exploración de películas que permite descubrir tendencias y 
+    detalles del mundo cinematográfico. Desarrollada con React y TailwindCSS, 
+    prioriza la experiencia de usuario mediante una interfaz rápida, responsiva 
+    y conectada a APIs externas para datos en tiempo real.`,
+    image: "/projects/Popcorn.png",
+    tags: ["React", "Vite", "TailwindCSS", "Integración API", "Diseño UX/UI"],
+    link: "https://popcorn.portfolioslf.com",
+    github: "https://github.com/L0FA/popcorn"
 },
 
 ]
