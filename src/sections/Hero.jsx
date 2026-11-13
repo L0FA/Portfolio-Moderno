@@ -2,6 +2,8 @@ import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/Button";
 import { Decode } from "@/components/Decode";
+import { DotGrid } from "@/components/DotGrid";
+import { PortraitReveal } from "@/components/PortraitReveal";
 import { perfil, redes } from "@/data/portfolio";
 
 const iconos = { GitHub: Github, LinkedIn: Linkedin };
@@ -24,8 +26,9 @@ const useHoraBA = () => {
 export const Hero = () => {
   const horaBA = useHoraBA();
   return (
-    <section id="top" className="pt-16">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-[1fr_20rem] lg:gap-16">
+    <section id="top" className="relative pt-16">
+      <DotGrid />
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-[1fr_20rem] lg:gap-16">
         <div>
           <Decode
             as="p"
@@ -86,13 +89,10 @@ export const Hero = () => {
         </div>
 
         <figure className="animate-rise mx-auto w-full max-w-xs [animation-delay:300ms] lg:max-w-none">
-          <img
+          <PortraitReveal
             src="/Perfil.jpeg"
             alt={`Retrato de ${perfil.nombre}`}
-            width="640"
-            height="800"
-            fetchPriority="high"
-            className="aspect-4/5 w-full rounded-lg border border-border bg-surface object-cover"
+            className="rounded-lg border border-border bg-surface"
           />
           <figcaption className="mt-4 space-y-1 text-sm">
             <span className="flex items-center gap-2 text-foreground">

@@ -1,5 +1,6 @@
 import { Navbar } from "@/layout/Navbar";
 import { Footer } from "@/layout/Footer";
+import { ScrollThread } from "@/components/ScrollThread";
 import { Hero } from "@/sections/Hero";
 import { Proyectos } from "@/sections/Proyectos";
 import { Experiencia } from "@/sections/Experiencia";
@@ -13,7 +14,8 @@ const App = () => (
       Saltar al contenido
     </a>
     <Navbar />
-    <main>
+    <main className="relative">
+      <ScrollThread />
       <Hero />
       <Proyectos />
       <Experiencia />

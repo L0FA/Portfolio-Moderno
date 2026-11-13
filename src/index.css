@@ -137,10 +137,23 @@ a:focus-visible .link-draw {
   opacity: 1;
 }
 
-/* Línea de tiempo: el punto se enciende cuando el riel lo alcanza */
-.exp-row[data-on="true"] .exp-dot {
+/* Rieles (Experiencia y el hilo de página): nodos y ramas se encienden cuando el relleno los alcanza */
+.rail-dot {
+  background-color: var(--color-background);
+  border-color: var(--color-border);
+  transition: background-color 500ms var(--ease), border-color 500ms var(--ease);
+}
+.rail-tick {
+  background-color: var(--color-border);
+  transform-origin: left;
+  transition: background-color 500ms var(--ease);
+}
+.rail-dot[data-on="true"] {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
+}
+.rail-tick[data-on="true"] {
+  background-color: var(--color-primary);
 }
 
 @media (prefers-reduced-motion: reduce) {
