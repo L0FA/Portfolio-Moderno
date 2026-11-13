@@ -36,5 +36,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
+          # El certificado de Hostinger es *.hstgr.io y no coincide con la IP: cifrado sí, verificación de nombre no.
+          security: loose
           local-dir: ./dist/
           server-dir: ${{ secrets.FTP_SERVER_DIR }}
