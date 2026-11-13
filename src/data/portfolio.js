@@ -1,6 +1,7 @@
 // Todo el contenido del sitio vive acá. Para sumar un proyecto, agregá un objeto a `proyectos`
 // y su captura (16:9, .webp) en /public/projects. `demo` y `repo` son opcionales: si faltan, el link no se muestra.
 // `fecha` ("AAAA-MM-DD", inicio del proyecto) ordena la grilla, el más reciente primero; se muestra como mes y año.
+// `esteSitio: true` marca a este portfolio: su "Ver sitio" avisa "Ya estás ahí" en vez de abrir otra pestaña.
 // `status` (opcional) es una etiqueta para proyectos sin link público, por ejemplo "En desarrollo · repo privado".
 
 export const perfil = {
@@ -101,6 +102,7 @@ export const proyectos = [
     ],
     tags: ["React 19", "Vite", "Tailwind CSS 4", "EmailJS"],
     image: "/projects/portfolio.webp",
+    esteSitio: true, // "Ver sitio" no navega: avisa "Ya estás ahí"
     demo: "https://portfolioslf.com",
     repo: "https://github.com/L0FA/Portfolio-Moderno",
   },

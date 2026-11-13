@@ -1,5 +1,5 @@
 import { ArrowUpRight, Github, Lock } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/Button";
 import { Decode } from "@/components/Decode";
 import { Reveal } from "@/components/Reveal";
@@ -20,10 +20,39 @@ const ext = { target: "_blank", rel: "noopener noreferrer" };
 const ordenados = [...proyectos].sort((a, b) => b.fecha.localeCompare(a.fecha));
 const mesAnio = new Intl.DateTimeFormat("es-AR", { month: "short", year: "numeric", timeZone: "UTC" });
 
+// Globito chico sobre el link: el contenedor centra, el hijo anima (rise usa transform y pisaría el centrado).
+const YaEstasAhi = () => (
+  <span role="status" className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 -translate-x-1/2">
+    <span className="animate-rise block whitespace-nowrap rounded-lg border border-border bg-surface px-3 py-2 font-mono text-xs font-normal text-foreground [animation-duration:300ms]">
+      <Decode text="Ya estás ahí" />
+    </span>
+  </span>
+);
+
 const ProjectCard = ({ p, delay }) => {
   const [loaded, setLoaded] = useState(false);
   const [open, setOpen] = useState(false); // en pantallas táctiles el overlay se abre tocando la imagen
+  const [aviso, setAviso] = useState(null); // { en: "overlay" | "link", n } para el proyecto que es este sitio
   const hasLinks = Boolean(p.demo || p.repo);
+
+  useEffect(() => {
+    if (!aviso) return;
+    const t = setTimeout(() => setAviso(null), 2500);
+    return () => clearTimeout(t);
+  }, [aviso]);
+
+  // Si el proyecto es este mismo sitio, "Ver sitio" no navega: muestra el aviso donde se hizo clic.
+  const demoProps = (en) =>
+    p.esteSitio
+      ? {
+          href: p.demo,
+          onClick: (e) => {
+            e.preventDefault();
+            e.stopPropagation(); // que no cierre el overlay en mobile
+            setAviso({ en, n: Date.now() });
+          },
+        }
+      : { href: p.demo, ...ext };
 
   return (
     <Reveal
@@ -59,7 +88,11 @@ const ProjectCard = ({ p, delay }) => {
             }`}
           >
             {p.demo && (
-              <Button href={p.demo} {...ext} className="group/btn translate-y-1 transition-[transform,background-color] duration-300 group-hover/img:translate-y-0">
+              <Button
+                {...demoProps("overlay")}
+                className="group/btn relative translate-y-1 transition-[transform,background-color] duration-300 group-hover/img:translate-y-0"
+              >
+                {aviso?.en === "overlay" && <YaEstasAhi key={aviso.n} />}
                 Ver sitio
                 <ArrowUpRight size={16} className="transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
               </Button>
@@ -113,7 +146,8 @@ const ProjectCard = ({ p, delay }) => {
         {hasLinks && (
           <div className="mt-auto flex gap-6 pt-2 text-sm font-medium">
             {p.demo && (
-              <a href={p.demo} {...ext} className="group/link inline-flex items-center gap-1 text-primary hover:text-primary-hover">
+              <a {...demoProps("link")} className="group/link relative inline-flex items-center gap-1 text-primary hover:text-primary-hover">
+                {aviso?.en === "link" && <YaEstasAhi key={aviso.n} />}
                 <span className="link-draw">Ver sitio</span>
                 <ArrowUpRight
                   size={16}
