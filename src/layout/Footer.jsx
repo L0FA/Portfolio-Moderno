@@ -1,64 +1,25 @@
-import { Github, Linkedin } from "lucide-react";
+import { perfil, redes } from "@/data/portfolio";
 
-const socialLinks = [
-                {icon: Github, href:"https://github.com/L0FA", label: "GitHub"},
-                {icon: Linkedin, href:"https://www.linkedin.com/in/santiago-lopez-fabbri/", label: "LinkedIn"},
-            ]
-
-const FooterLinks = [
-     { href: "#Acerca_De", label: "Acerca de"},
-    { href: "#Proyectos", label: "Proyectos"},
-    { href: "#Experiencia", label: "Experiencia"},
-    { href: "#Contacto", label: "Contacto"},
-]
-
-export const Footer = () => {
-const Año = new Date().getFullYear();
-
-return (
-<footer className="py-12 border-t border-border">
-<div className="container mx-auto px-6">
-<div className="flex flex-col md:flex-row items-center justify-between gap-8">
-
-{/* Logo y Derechos de Autor */}
-
-<div className="text-center md:text-left">
-<a href="#" className="text-xl font-bold tracking-tight">
-SLF<span className="text-primary">.</span>
-</a>
-<p className="text-sm text-muted-foreground mt-2">
-{Año} Santiago Lopez Fabbri. Todos los Derechos Reservados.
-</p>
-</div>
-
-{/* Links */}
-<nav className="flex flex-wrap justify-center gap-6">
-{FooterLinks.map((link) => ( 
-<a
-key={link.href}
-href={link.href}
-className="text-sm text-muted-foreground hover:text-foreground transition-colors"
->
-{link.label}
-</a>
-))}
-</nav>
-
-{/* Redes Sociales */}
-<div className="flex items-center gap-4">
-{socialLinks.map((social) => (
-<a
-key = {social.label}
-href={social.href}
-aria-label={social.label}
-className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
->
-<social.icon className="w-5 h-5" />
-</a>
-))}
-</div>
-</div>
-</div>
-</footer>
+export const Footer = () => (
+  <footer className="border-t border-border py-8">
+    <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <p>
+        © {new Date().getFullYear()} {perfil.nombre}
+      </p>
+      <ul className="flex gap-6">
+        {redes.map((r) => (
+          <li key={r.label}>
+            <a href={r.href} target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
+              {r.label}
+            </a>
+          </li>
+        ))}
+        <li>
+          <a href={`mailto:${perfil.email}`} className="hover:text-foreground">
+            Email
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
 );
-};

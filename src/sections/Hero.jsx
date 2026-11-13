@@ -1,233 +1,71 @@
+import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/Button";
-import { useState } from "react";
-import {
-    ArrowRight,
-     Download,
-    ChevronDown,
-     Github,
-       Linkedin,
-         } from "lucide-react"
-import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
+import { perfil, redes } from "@/data/portfolio";
 
+const iconos = { GitHub: Github, LinkedIn: Linkedin };
 
+export const Hero = () => (
+  <section id="top" className="pt-16">
+    <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-[1fr_20rem] lg:gap-16">
+      <div className="animate-rise">
+        <p className="font-mono text-xs uppercase tracking-widest text-primary">
+          {perfil.rol} · {perfil.ubicacion}
+        </p>
+        <h1 className="mt-6 text-4xl font-semibold leading-[1.1] tracking-tight text-balance sm:text-5xl md:text-6xl">
+          Construyo aplicaciones web completas, del modelo de datos a la interfaz.
+        </h1>
+        <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">
+          Soy {perfil.nombre}. Trabajo con React, Next.js, Node.js y bases de datos SQL y NoSQL. Me formé en la UTN y
+          vengo de la gestión de datos, algo que hoy aplico a diseñar backends ordenados y confiables.
+        </p>
 
-const skills = [
-    "React",
-    "MongoDB",
-    "JavaScript",
-    "Tailwind CSS",
-    "Node.JS",
-    "TypeScript",
-    "MySQL",
-    "Python",
-    "CSS3",
-    "HTML5",
-    "Git",
-    "Github Actions",
-    "Express.JS",
-    "Vite",
-];
-
-
-
-export const Hero = () => {
-
-const [particles] = useState(() =>
-    Array.from({ length: 30 }, () => ({
-        left: Math.random() * 100,
-        top: Math.random() * 100,
-        duration: 15 + Math.random() * 20,
-        delay: Math.random() * 5,
-    }))
-);
-
-
-
-    return (
-        <section className="relative min-h-screen flex items-center overflow-hidden">
-    {/* Fondo */}
-    <div className="absolute inset-0"> 
-        <img
-         src="/Fondo.jpg"
-         alt="Fondo Hero"
-         className="w-full h-full object-cover opacity-40"
-         
-         />
-         <div className="absolute inset-0 bg-linear-to-b from-background/20 via-background/80 to-background"/>
-    </div>
-
-        {/* Puntos Verdes */}
-
-
-
-{particles.map((p, i) => (
-    <div
-        key={`particle-${i}`}
-        className="absolute w-1.5 h-1.5 rounded-full opacity-60"
-        style={{
-            backgroundColor: "#20B2A6",
-            left: `${p.left}%`,
-            top: `${p.top}%`,
-            animation: `slow-drift ${p.duration}s ease-in-out infinite`,
-            animationDelay: `${p.delay}s`
-        }}
-    />
-))}
-
-
-{/* Contenido del Hero */}
-
-<div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
-    <div className="grid lg:grid-cols-2 gap-12 items-center">
-
-        { /* Columna Izquierda - Contenido en Cadena de Texto */ }
-
-        <div className="space-y-8">
-            <div className="animate-fade-in">
-                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
-                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" /> 
-                    Desarrollador Web Full Stack 
-                    </span>
-            </div>
-
-            {/* Titular */}
-
-            <div className="space-y-4">
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leadin-tight animate-fade-in animation-delay-100">
-                    Desarrollo 
-                    <span className="text-primary glow-text"> Soluciones Digitales</span>
-                    <br />
-                    capaces de generar un impacto 
-                    
-                    <span className="font-serif italic font-normal flex text-white">
-                            real y preciso.
-                    </span>
-                    </h1>
-                    <p 
-                    className="text-lg text-muted-foreground
-                     max-w-lg animate-fade-in animation-delay-200"
-                    >
-                    Hola, soy Santiago Lopez Fabbri,
-                    un Desarrollador Web Full Stack enfocado en crear productos 
-                    digitales modernos, escalables y funcionales. Combino diseño intuitivo con 
-                    lógica sólida para construir soluciones que no solo se ven bien, 
-                    sino que resuelven problemas reales.
-                    <br />
-                    Trabajo con tecnologías actuales y una mentalidad orientada a los resultados, 
-                    adaptándome tanto a equipos de trabajo como a proyectos independientes.
-                    </p>
-            </div>
-
-            {/* Calls To Action / CTA´S */}
-            <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-                <a href="#Contacto">
-                <Button size="lg">
-                Contactame!
-                <ArrowRight className="w-5 h-5" />
-                </Button>
-                </a>
-                <a href="/CVSLF.pdf" download>
-               <AnimatedBorderButton>
-                <Download className="w-5 h-5"/>
-                    Descargar CV
-                </AnimatedBorderButton>
-                </a>
+        <div className="mt-8 flex flex-wrap gap-4">
+          <Button href="#proyectos">
+            Ver proyectos <ArrowDown size={16} />
+          </Button>
+          <Button href={perfil.cv} variant="secondary" download>
+            <Download size={16} /> Descargar CV
+          </Button>
         </div>
 
-        {/* Redes Sociales */}
-        <div className="flex items-center gap-4 animate-fade-in animation-deñay-400">
-            <span className="text-sm text-muted-foreground">
-                Seguime En:
-            </span>
-            {[
-                {icon: Github, href:"https://github.com/L0FA"},
-                {icon: Linkedin, href:"https://www.linkedin.com/in/santiago-lopez-fabbri/"},
-                
-            ].map((social, idx) => (
+        <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+          {redes.map((r) => {
+            const Icon = iconos[r.label];
+            return (
+              <li key={r.label}>
                 <a
-                 key={idx}
-                  href={social.href}
-                  className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300">
-                {<social.icon className="w-5 h-5" />}
-                </a>
-            ))}
-        </div>
-        </div>
-        {/* Columna Derecha - Imagen de Perfil */}
-        <div className="relative animate-fade-in animation-delay-300">
-            {/* Imagen del Perfil */}
-            <div className="relative max-w-md mx-auto">
-                <div className="absolute inset-0 rounded-3xl
-                bg-linear-to-br from-primary/30 
-                via-transparent to-primary/10 blur-2xl animate-pulse"
-                />
-                <div 
-                className="relative glass rounded-3xl p-2 glow-border">
-                    <img 
-                    src="/Perfil.jpeg" 
-                    alt="Santiago Lopez Fabbri"
-                    className="w-full aspect-4/5 object-cover rounded-2xl"
-                    />
-
-                    {/* "Abierto a Contrataciones" */}
-<div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 animate-float">
-    <div className="flex items-center gap-3">
-<div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-    <span className="text-sm font-medium">
-        Abierto a Contrataciones
-    </span>
-</div>
-</div>
-                    {/* Años de Experiencia */}
-                <div className="
-                absolute -top-4 -left-4 glass rounded-xl 
-                px-4 py-3 animate-float animation-delay-500"
+                  href={r.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:text-foreground"
                 >
-                <div className="text 2xl font-bold text-primary">
-                + 2
-                </div>
-                <div className="text-xs">
-                    Años de Experiencia
-                </div>
-                </div>
-                </div>
-                </div>
-            </div>
-        </div>
+                  <Icon size={16} /> {r.label}
+                </a>
+              </li>
+            );
+          })}
+          <li>
+            <a href={`mailto:${perfil.email}`} className="inline-flex items-center gap-2 hover:text-foreground">
+              <Mail size={16} /> {perfil.email}
+            </a>
+          </li>
+        </ul>
+      </div>
 
-        {/* Sección de Habilidades */}
-        <div className="mt-20 animate-fade-in animation-delay-600">
-            <p className="text-sm text-muted-foreground mb-6 text-center">
-                Trabajo con las siguientes tecnologías:
-            </p>
-            <div className="relative overflow-hidden">
-                <div className="flex animate-marquee">
-                    {[...skills, ...skills].map((skill, idx) => (
-                        <div key={idx} className="shrink-0 px-8 py-4">
-                            <span
-                             className="text-xl font-semibol text-muted-foreground/50
-                              hover:text-muted-foreground transition-colors"
-                              >
-                                {skill}
-                                </span>
-                            </div>
-                    ))}
-                </div>
-            </div>
-        </div>
+      <figure className="animate-rise mx-auto w-full max-w-xs [animation-delay:100ms] lg:max-w-none">
+        <img
+          src="/Perfil.jpeg"
+          alt={`Retrato de ${perfil.nombre}`}
+          width="640"
+          height="800"
+          fetchPriority="high"
+          className="aspect-4/5 w-full rounded-lg border border-border bg-surface object-cover"
+        />
+        <figcaption className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
+          <span className="size-2 rounded-full bg-success" aria-hidden="true" />
+          Disponible para full-time y freelance
+        </figcaption>
+      </figure>
     </div>
-
-<div className="absolute bottom-8 left-1/2 -translate-x-1/2 
-animate-fade-in animation-delay-800">
-<a
-href="#about"
-className="flex flex-col items-center gap-2 text-muted-foreground
-hover:text-primary"
->
-<span className="text-xs uppercase tracking-wider"> Scroll </span>
-<ChevronDown className="w-6 h-6 animate-bounce" />
-</a>
-</div>
-</section>
+  </section>
 );
-};

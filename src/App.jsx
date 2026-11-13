@@ -1,24 +1,28 @@
 import { Navbar } from "@/layout/Navbar";
+import { Footer } from "@/layout/Footer";
 import { Hero } from "@/sections/Hero";
-import { Acerca_De } from "./sections/Acerca_De.jsx";
-import { Proyectos } from "./sections/Proyectos.jsx"
-import { Experiencia } from "./sections/Experiencia.jsx"
-import { Testimonios } from "./sections/Testimonios.jsx"
-import { Contacto } from "./sections/Contacto.jsx"
-import { Footer } from "./layout/Footer.jsx";
-function App () {
-  return <div className="min-h-screen overflow-x-hidden">
+import { Proyectos } from "@/sections/Proyectos";
+import { Experiencia } from "@/sections/Experiencia";
+import { Acerca_De } from "@/sections/Acerca_De";
+import { Testimonios } from "@/sections/Testimonios";
+import { Contacto } from "@/sections/Contacto";
+
+const App = () => (
+  <>
+    <a href="#proyectos" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground">
+      Saltar al contenido
+    </a>
     <Navbar />
-<main>
-  <Hero />
-  <Acerca_De />
-<Proyectos />
-<Experiencia />
-<Testimonios />
-<Contacto />
-</main>
-<Footer />
-  </div>
-}
+    <main>
+      <Hero />
+      <Proyectos />
+      <Experiencia />
+      <Acerca_De />
+      <Testimonios />
+      <Contacto />
+    </main>
+    <Footer />
+  </>
+);
 
 export default App;
