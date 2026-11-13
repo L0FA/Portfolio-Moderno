@@ -1,5 +1,6 @@
 // Todo el contenido del sitio vive acá. Para sumar un proyecto, agregá un objeto a `proyectos`
 // y su captura (16:9, .webp) en /public/projects. `demo` y `repo` son opcionales: si faltan, el link no se muestra.
+// `status` (opcional) es una etiqueta para proyectos sin link público, por ejemplo "En desarrollo · repo privado".
 
 export const perfil = {
   nombre: "Santiago López Fabbri",
@@ -28,6 +29,19 @@ export const proyectos = [
     image: "/projects/aprende-programando.webp",
     demo: "https://www.aprendeprogramando.portfolioslf.com",
     repo: "https://github.com/L0FA/aprende-programando",
+  },
+  {
+    title: "Hide",
+    summary:
+      "Red social anónima para iOS, Android y web: cada persona es solo un alias. Una única app hecha con Expo.",
+    highlights: [
+      "Chats 1 a 1 que se autodestruyen: el servidor fija la caducidad y un cron los borra",
+      "Historias de 24 h visibles solo para seguidores, con vistas opcionales",
+      "Seguridad en Postgres con RLS, cubierta por tests de privacidad automatizados",
+    ],
+    tags: ["Expo", "React Native", "Supabase", "PostgreSQL", "Expo Router", "Leaflet"],
+    image: "/projects/hide.webp",
+    status: "En desarrollo · repo privado",
   },
   {
     title: "L0FAChat",

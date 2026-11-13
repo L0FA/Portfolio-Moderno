@@ -2,6 +2,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/Button";
 import { Decode } from "@/components/Decode";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { perfil } from "@/data/portfolio";
 
 const navLinks = [
@@ -65,7 +66,7 @@ export const Navbar = () => {
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6" aria-label="Principal">
-        <a href="#top" className="truncate font-mono text-sm font-medium tracking-tight">
+        <a href="#top" className="truncate font-mono text-xs font-medium tracking-tight sm:text-sm">
           <Decode text={`${perfil.nombre} - Portfolio`} onHover />
         </a>
 
@@ -91,22 +92,25 @@ export const Navbar = () => {
           />
         </ul>
 
-        <div className="hidden lg:block">
-          <Button href="#contacto" className="h-10">
-            Contacto
-          </Button>
-        </div>
+        <div className="flex shrink-0 items-center gap-2">
+          <ThemeToggle />
+          <div className="hidden lg:block">
+            <Button href="#contacto" className="h-10">
+              Contacto
+            </Button>
+          </div>
 
-        <button
-          type="button"
-          className="-mr-2 shrink-0 p-2 lg:hidden"
+          <button
+            type="button"
+            className="-mr-2 shrink-0 p-2 lg:hidden"
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
           aria-controls="menu-mobile"
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </nav>
 
       {open && (

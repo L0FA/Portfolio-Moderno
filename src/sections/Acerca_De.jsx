@@ -1,3 +1,4 @@
+import { Decode } from "@/components/Decode";
 import { Section } from "@/components/Section";
 import { stack } from "@/data/portfolio";
 
@@ -23,7 +24,7 @@ export const Acerca_De = () => (
       <dl className="grid gap-8 sm:grid-cols-2">
         {stack.map((s) => (
           <div key={s.area}>
-            <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">{s.area}</dt>
+            <Decode as="dt" text={s.area} className="font-mono text-xs uppercase tracking-widest text-muted-foreground" />
             <dd className="mt-4">
               <ul className="space-y-2 text-base">
                 {s.items.map((i) => (

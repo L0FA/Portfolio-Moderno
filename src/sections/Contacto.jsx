@@ -1,3 +1,4 @@
+import { Decode } from "@/components/Decode";
 import { AlertCircle, CheckCircle2, Loader2, Send } from "lucide-react";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
@@ -47,7 +48,7 @@ export const Contacto = () => {
         <dl className="space-y-6">
           {contactos.map((c) => (
             <div key={c.label}>
-              <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">{c.label}</dt>
+              <Decode as="dt" text={c.label} className="font-mono text-xs uppercase tracking-widest text-muted-foreground" />
               <dd className="mt-2 break-words text-base">
                 {c.href ? (
                   <a

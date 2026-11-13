@@ -1,3 +1,4 @@
+import { Decode } from "@/components/Decode";
 import { useEffect, useRef } from "react";
 import { Section } from "@/components/Section";
 import { Tag } from "@/components/Tag";
@@ -53,9 +54,11 @@ export const Experiencia = () => {
               aria-hidden="true"
               className="exp-dot absolute top-10 left-0 size-2 -translate-x-1/2 rounded-full border border-border bg-background transition-colors duration-500"
             />
-            <p className="font-mono text-sm text-muted-foreground transition-colors duration-300 group-hover:text-primary">
-              {e.period}
-            </p>
+            <Decode
+              as="p"
+              text={e.period}
+              className="font-mono text-sm text-muted-foreground transition-colors duration-300 group-hover:text-primary"
+            />
             <div>
               <h3 className="text-xl font-semibold tracking-tight">{e.role}</h3>
               <p className="mt-1 text-base text-primary">{e.company}</p>

@@ -10,6 +10,15 @@
     />
     <link rel="canonical" href="https://portfolioslf.com/" />
     <meta name="theme-color" content="#0d1114" />
+    <script>
+      // Tema antes del primer pintado: elección guardada o, si no hay, la del sistema.
+      (function () {
+        var t;
+        try { t = localStorage.getItem("theme"); } catch (e) {}
+        if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        document.documentElement.dataset.theme = t;
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 

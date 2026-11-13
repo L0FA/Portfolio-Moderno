@@ -18,6 +18,29 @@
   --color-danger: #f87171;
 }
 
+/* Tema claro: mismos tokens, otros valores. El teal se oscurece para mantener contraste AA sobre blanco. */
+:root[data-theme="light"] {
+  --color-background: #f6f7f8;
+  --color-surface: #ffffff;
+  --color-surface-2: #eef1f3;
+  --color-border: #dce1e5;
+  --color-foreground: #0f1418;
+  --color-muted-foreground: #5a6570;
+  --color-primary: #0d7a71;
+  --color-primary-hover: #0a6a62;
+  --color-primary-foreground: #ffffff;
+  --color-success: #15803d;
+  --color-danger: #b91c1c;
+  color-scheme: light;
+}
+
+/* Cambio de tema: el tema nuevo se revela en círculo desde el botón (lo anima ThemeToggle.jsx). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

@@ -39,10 +39,11 @@ Todo el contenido (proyectos, experiencia, stack, testimonios, redes) está en `
   image: "/projects/nombre.webp",
   demo: "https://...",   // opcional
   repo: "https://...",   // opcional
+  status: "En desarrollo · repo privado", // opcional, para proyectos sin link público
 }
 ```
 
-Si `demo` o `repo` no existen, el link no se muestra.
+Si `demo` o `repo` no existen, el link no se muestra. Con al menos uno de los dos, al pasar el mouse (o tocar la imagen en mobile) aparece el overlay con los botones.
 
 ## Estructura
 
