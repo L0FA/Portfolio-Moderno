@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
 import { testimonios } from "@/data/portfolio";
 
@@ -12,8 +13,8 @@ const iniciales = (nombre) =>
 export const Testimonios = () => (
   <Section id="testimonios" eyebrow="Testimonios" title="Lo que dicen quienes trabajaron conmigo">
     <div className="grid gap-6 md:grid-cols-2">
-      {testimonios.map((t) => (
-        <figure key={t.author} className="flex flex-col justify-between gap-8 rounded-lg border border-border bg-surface p-6 md:p-8">
+      {testimonios.map((t, i) => (
+        <Reveal as="figure" delay={(i % 2) * 100} key={t.author} className="flex flex-col justify-between gap-8 rounded-lg border border-border bg-surface p-6 md:p-8">
           <blockquote className="text-base leading-7">“{t.quote}”</blockquote>
           <figcaption className="flex items-center gap-4">
             <span
@@ -27,7 +28,7 @@ export const Testimonios = () => (
               <span className="block text-sm text-muted-foreground">{t.role}</span>
             </span>
           </figcaption>
-        </figure>
+        </Reveal>
       ))}
     </div>
   </Section>

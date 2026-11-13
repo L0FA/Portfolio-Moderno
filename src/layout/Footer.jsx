@@ -9,13 +9,13 @@ export const Footer = () => (
       <ul className="flex gap-6">
         {redes.map((r) => (
           <li key={r.label}>
-            <a href={r.href} target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
+            <a href={r.href} target="_blank" rel="noopener noreferrer" className="link-draw transition-colors hover:text-foreground">
               {r.label}
             </a>
           </li>
         ))}
         <li>
-          <a href={`mailto:${perfil.email}`} className="hover:text-foreground">
+          <a href={`mailto:${perfil.email}`} className="link-draw transition-colors hover:text-foreground">
             Email
           </a>
         </li>
