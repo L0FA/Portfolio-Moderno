@@ -16,6 +16,10 @@ const track = (e) => {
 
 const ext = { target: "_blank", rel: "noopener noreferrer" };
 
+// Más reciente primero. "AAAA-MM-DD" se interpreta en UTC, por eso el formato también usa UTC.
+const ordenados = [...proyectos].sort((a, b) => b.fecha.localeCompare(a.fecha));
+const mesAnio = new Intl.DateTimeFormat("es-AR", { month: "short", year: "numeric", timeZone: "UTC" });
+
 const ProjectCard = ({ p, delay }) => {
   const [loaded, setLoaded] = useState(false);
   const [open, setOpen] = useState(false); // en pantallas táctiles el overlay se abre tocando la imagen
@@ -75,14 +79,18 @@ const ProjectCard = ({ p, delay }) => {
       </div>
 
       <div className="flex flex-1 flex-col gap-4 p-6">
-        <div className="flex flex-wrap items-baseline justify-between gap-2">
+        <div className="space-y-2">
+          <p className="flex flex-wrap items-center gap-x-2 font-mono text-xs text-muted-foreground">
+            <Decode text={mesAnio.format(new Date(p.fecha))} />
+            {p.status && (
+              <>
+                <span aria-hidden="true">·</span>
+                <Lock size={12} aria-hidden="true" />
+                <Decode text={p.status} />
+              </>
+            )}
+          </p>
           <h3 className="text-xl font-semibold tracking-tight">{p.title}</h3>
-          {p.status && (
-            <span className="inline-flex items-center gap-2 font-mono text-xs text-muted-foreground">
-              <Lock size={12} aria-hidden="true" />
-              <Decode text={p.status} />
-            </span>
-          )}
         </div>
         <p className="text-base leading-7 text-muted-foreground">{p.summary}</p>
         <ul className="space-y-2 text-sm leading-6">
@@ -135,7 +143,7 @@ export const Proyectos = () => {
       intro="Aplicaciones que diseñé y desarrollé de punta a punta: arquitectura, backend, interfaz y deploy."
     >
       <div className="grid gap-6 md:grid-cols-2">
-        {proyectos.map((p, i) => (
+        {ordenados.map((p, i) => (
           <ProjectCard key={p.title} p={p} delay={(i % 2) * 100} />
         ))}
       </div>

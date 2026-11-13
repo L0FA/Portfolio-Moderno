@@ -36,6 +36,7 @@ Todo el contenido (proyectos, experiencia, stack, testimonios, redes) está en `
   summary: "Una oración: qué es y para quién.",
   highlights: ["Qué resolviste", "Cómo", "Un dato concreto"],
   tags: ["React", "Node.js"],
+  fecha: "2026-12-01",   // inicio del proyecto; ordena la grilla (más reciente primero)
   image: "/projects/nombre.webp",
   demo: "https://...",   // opcional
   repo: "https://...",   // opcional

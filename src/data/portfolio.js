@@ -1,5 +1,6 @@
 // Todo el contenido del sitio vive acá. Para sumar un proyecto, agregá un objeto a `proyectos`
 // y su captura (16:9, .webp) en /public/projects. `demo` y `repo` son opcionales: si faltan, el link no se muestra.
+// `fecha` ("AAAA-MM-DD", inicio del proyecto) ordena la grilla, el más reciente primero; se muestra como mes y año.
 // `status` (opcional) es una etiqueta para proyectos sin link público, por ejemplo "En desarrollo · repo privado".
 
 export const perfil = {
@@ -18,6 +19,7 @@ export const redes = [
 export const proyectos = [
   {
     title: "Aprende Programando",
+    fecha: "2026-04-11",
     summary:
       "Plataforma gratuita para aprender programación desde cero, con cursos de Frontend, Backend y Videojuegos.",
     highlights: [
@@ -32,6 +34,7 @@ export const proyectos = [
   },
   {
     title: "Hide",
+    fecha: "2026-11-13",
     summary:
       "Red social anónima para iOS, Android y web: cada persona es solo un alias. Una única app hecha con Expo.",
     highlights: [
@@ -44,7 +47,22 @@ export const proyectos = [
     status: "En desarrollo · repo privado",
   },
   {
+    title: "GamersList",
+    fecha: "2026-09-26",
+    summary:
+      "App para armar tu lista de videojuegos desde la web, el celular o el escritorio, con un solo backend.",
+    highlights: [
+      "Búsqueda de juegos en IGDB con RAWG de respaldo; las credenciales viven solo en el backend",
+      "Lista personal con notas por juego y autenticación con JWT",
+      "Monorepo con Turborepo: web, mobile y escritorio comparten tipos y cliente de API",
+    ],
+    tags: ["React", "TypeScript", "React Native", "Tauri", "Fastify", "Prisma", "Turborepo"],
+    image: "/projects/gamerslist.webp",
+    status: "En desarrollo · código privado",
+  },
+  {
     title: "L0FAChat",
+    fecha: "2026-04-06",
     summary:
       "Chat en tiempo real con salas sincronizadas y reproducción de música compartida entre usuarios.",
     highlights: [
@@ -58,6 +76,7 @@ export const proyectos = [
   },
   {
     title: "Popcorn",
+    fecha: "2026-04-18",
     summary:
       "Aplicación para explorar películas, ver tendencias y guardar favoritas, conectada a una API externa.",
     highlights: [
@@ -72,6 +91,7 @@ export const proyectos = [
   },
   {
     title: "Portfolio",
+    fecha: "2026-03-30",
     summary:
       "Este sitio. Contenido separado de la presentación para poder sumar proyectos sin tocar componentes.",
     highlights: [
