@@ -117,17 +117,17 @@ export const stack = [
 
 export const experiencia = [
   {
-    period: "2025 — Presente",
+    period: "2023 — Presente",
     role: "Desarrollador Full Stack Freelance",
     company: "Independiente",
     description:
-      "Desarrollo de sitios y aplicaciones a medida para clientes, desde la planificación hasta el deploy, integrando frontend y backend.",
+      "Landing pages a medida para clientes, de la planificación al deploy, y proyectos propios full stack integrando frontend y backend. Part-time, en paralelo con otros trabajos.",
     technologies: ["React", "Next.js", "TypeScript", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
   },
   {
-    period: "2024 — 2025",
+    period: "2023 — 2025",
     role: "Administrador de Datos",
-    company: "Administración Mabresama",
+    company: "Administración Mabresama (por períodos)",
     description:
       "Administración, documentación y mantenimiento de información sensible en bases de datos locales y en servidor.",
     technologies: ["MySQL", "MongoDB", "AdminProp", "Excel", "Node.js", "Git"],
